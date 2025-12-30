@@ -22,7 +22,7 @@ router.post('/register', async (req, res) => {
 
         await user.save();
 
-        // Crear JWT
+        // Creear JWT
         const payload = { id: user._id };
         const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
 
