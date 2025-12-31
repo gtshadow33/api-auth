@@ -55,4 +55,4 @@ router.delete('/me', authMiddleware, async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
