@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/user');
 const authMiddleware = require('./middleware/auth');
 
 const app = express();
@@ -12,10 +13,11 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB conectado'))
   .catch(err => console.error('Error conectando a MongoDB:', err));
 
-// Rutas de autenticación
+// Rutas
 app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
 
-// Ruta protegida con JWT
+// Ruta protegida con JWT de prueba
 app.get('/api/protegida', authMiddleware, (req, res) => {
   res.json({ msg: `Hola usuario ${req.user.id}, estás autorizado!` });
 });
