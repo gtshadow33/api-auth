@@ -1,9 +1,13 @@
-require('dotenv').config();
-const express = require('express');
-const mongoose = require('mongoose');
-const authRoutes = require('./routes/auth');
-const userRoutes = require('./routes/user');
-const authMiddleware = require('./middleware/auth');
+import dotenv from "dotenv";
+import express from "express";
+import mongoose from "mongoose";
+
+import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/user.js";
+import authMiddleware from "./middleware/auth.js";
+
+dotenv.config();
+
 
 const app = express();
 app.use(express.json()); // Middleware para parsear JSON

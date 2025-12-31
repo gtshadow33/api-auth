@@ -1,8 +1,12 @@
-const express = require('express');
+import express from "express";
 const router = express.Router();
-const User = require('../models/Users');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+
+import User from "../models/Users.js";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+
+
+
 
 // Registro
 router.post('/register', async (req, res) => {
